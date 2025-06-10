@@ -1,0 +1,28 @@
+# Daily Logging Routine Instructions
+
+This rule complements the `daily_procedures.todo_check` outlined in the main `.cursorrules`.
+
+## Objective
+Maintain a concise yet informative daily log (`daily_log.md`) to track actions, decisions, and progress without creating excessive noise.
+
+## Procedure
+1.  **Initialization:** At the beginning of a new interaction or work session for the day:
+    *   Reference the `daily_log.md` file.
+    *   Verify if an entry for the current date already exists. If not, create one (e.g., `## YYYY-MM-DD`).
+    *   Note the initial `TODO.md` check as per the main `.cursorrules`.
+
+2.  **Action Logging:** Throughout the session, log *significant* actions, decisions, or completed milestones. Focus on *what* was achieved or decided, not every minor step.
+    *   **Conciseness is key.** Use brief bullet points.
+    *   Examples:
+        *   `Formatted market-report.md.`
+        *   `Created routine.cursorrules.`
+        *   `Discussed refactoring approach for module X.`
+        *   `Resolved blocker related to API key.`
+
+3.  **Efficiency:** The goal is tracking, not exhaustive documentation. The log should provide a quick overview of the day's key activities. Avoid lengthy descriptions or pasting large code blocks.
+
+4.  **Review:** Briefly review the log at the end of a session or day to ensure key events are captured.
+
+## Files Referenced
+- `daily_log.md`: The central log file.
+- `TODO.md`: Checked daily as per main rules. 

@@ -1,0 +1,53 @@
+{
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/node_modules": true
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/.git": true
+    },
+    "custom_instructions": {
+        "terminology": {
+            "preferred": [
+                {
+                    "term": "AI Augmentation",
+                    "context": "Core philosophy of ReplyPilot, preferred over automation"
+                },
+                {
+                    "term": "Human-in-the-Loop",
+                    "context": "Fundamental design approach where humans maintain control"
+                },
+                {
+                    "term": "Human-AI Partnership",
+                    "context": "The relationship between users and AI in ReplyPilot"
+                }
+            ],
+            "avoid": [
+                {
+                    "term": "AI Automation",
+                    "context": "Implies removing humans from the process"
+                },
+                {
+                    "term": "Replacement",
+                    "context": "AI is not meant to replace human communication"
+                }
+            ]
+        },
+        "documentation_style": {
+            "vision_documents": "Focus on emotional connection and addressing communication barriers",
+            "technical_documents": "Maintain emphasis on augmentation while being precise about capabilities"
+        },
+        "daily_procedures": {
+            "todo_check": {
+                "description": "Every day should start with a check on the TODO.md list",
+                "instructions": "At the beginning of each day, verify the TODO.md file, review progress, and discuss priorities regardless of the specific request",
+                "logging": "Maintain a daily_log.md file to record when the TODO list was checked each day"
+            }
+        }
+    }
+}
