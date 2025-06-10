@@ -12,6 +12,11 @@ from .agents.file_summarizer_agent import (  # type: ignore
     FileReview,
     file_summarizer_agent,
 )
+from .agents.text_reviewer_agent import (
+    TextFileReview,
+    text_reviewer_agent,
+)  # type: ignore
+from .agents.expert_upgrade_agent import expert_upgrade_agent  # type: ignore
 from .printer import Printer  # type: ignore
 
 
@@ -36,53 +41,100 @@ class AgenticSystemManager:
             file_count_msg,
             is_done=True,
         )
-        # Step 2: Summarize and review each file
-        file_reviews: list[FileReview] = []
+        # Step 2: Summarize and review each file, classified by type
+        code_exts = {".py", ".js", ".ts", ".tsx"}
+        code_reviews: list[FileReview] = []
         for file_path in file_paths:
             self.printer.update_item(
                 f"summarizing_{file_path}",
                 f"Summarizing {file_path}...",
             )
             contents = self._read_file_contents(file_path)
+            _, ext = os.path.splitext(file_path)
             input_payload = (
                 "File path: "
                 f"{file_path}\n\nFile contents:\n{contents}"
             )
             try:
-                res = await Runner.run(
-                    file_summarizer_agent,
-                    input_payload,
-                )
-                review = res.final_output_as(FileReview)
+                if ext.lower() in code_exts:
+                    res = await Runner.run(
+                        file_summarizer_agent,
+                        input_payload,
+                    )
+                    review = res.final_output_as(FileReview)
+                    code_reviews.append(review)
+                else:
+                    res = await Runner.run(
+                        text_reviewer_agent,
+                        input_payload,
+                    )
+                    review = res.final_output_as(TextFileReview)
             except Exception:
-                review = FileReview(
-                    file=file_path,
-                    summary="Error generating summary.",
-                    feedback="",
-                    issues=[],
-                )
-            file_reviews.append(review)
+                if ext.lower() in code_exts:
+                    review = FileReview(
+                        file=file_path,
+                        summary="Error generating summary.",
+                        feedback="",
+                        issues=[],
+                    )
+                    code_reviews.append(review)
+                else:
+                    review = TextFileReview(
+                        file=file_path,
+                        summary="Error generating summary.",
+                        feedback="",
+                        issues=[],
+                    )
             self.printer.mark_item_done(f"summarizing_{file_path}")
 
-        # Step 3: (Stub) upgrade suggestions — to be replaced with agent
-        upgrade_suggestions = [
-            "Add linting configuration to ensure consistent style.",
-            "Consider modularizing large modules into smaller ones.",
-        ]
+        # Step 3: Expert upgrade agent suggestion
+        all_reviews = code_reviews
+        try:
+            expert_result = await Runner.run(
+                expert_upgrade_agent,
+                str([r.model_dump() for r in all_reviews]),
+            )
+            expert_upgrade = expert_result.final_output["upgrade"]
+            expert_rationale = expert_result.final_output["rationale"]
+        except Exception:
+            expert_upgrade = "Error generating expert upgrade."
+            expert_rationale = ""
 
-        # Output results
-        print("\n\n===== FILE REVIEWS =====\n\n")
-        for review in file_reviews:
+        # Output results to console
+        print("\n\n===== CODE FILE REVIEWS =====\n\n")
+        for review in code_reviews:
             print(
                 f"File: {review.file}\n"
                 f"Summary: {review.summary}\n"
                 f"Feedback: {review.feedback}\n"
                 f"Issues: {review.issues}\n"
             )
-        print("\n\n===== UPGRADE SUGGESTIONS =====\n\n")
-        for suggestion in upgrade_suggestions:
-            print(f"- {suggestion}")
+        print("\n\n===== TOP EXPERT UPGRADE RECOMMENDATION =====\n\n")
+        print(
+            f"Upgrade: {expert_upgrade}\nRationale: {expert_rationale}\n"
+        )
         self.printer.end()
+
+        # Write output to markdown file
+        output_path = os.path.join(
+            os.path.dirname(__file__), "project_file_reviews.md"
+        )
+        with open(output_path, "w", encoding="utf-8") as f:
+            f.write("# Project File Reviews\n\n")
+            f.write("## Code Reviews\n\n")
+            for review in code_reviews:
+                f.write(f"### {review.file}\n\n")
+                f.write(f"**Summary:** {review.summary}\n\n")
+                f.write(f"**Feedback:** {review.feedback}\n\n")
+                if review.issues:
+                    f.write("**Issues / TODOs:**\n")
+                    for issue in review.issues:
+                        f.write(f"- {issue}\n")
+                    f.write("\n")
+            f.write("# Top Expert Upgrade Recommendation\n\n")
+            f.write(f"**Upgrade:** {expert_upgrade}\n\n")
+            f.write(f"**Rationale:** {expert_rationale}\n\n")
+        print(f"\nMarkdown output written to: {output_path}\n")
 
     def _list_project_files(self) -> List[str]:
         """

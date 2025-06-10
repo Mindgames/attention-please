@@ -3,6 +3,7 @@ from typing import List
 from pydantic import BaseModel
 
 from agents import Agent  # type: ignore
+from . import DEFAULT_MODEL
 
 FILE_SUMMARIZER_PROMPT = (
     "You are a senior code reviewer. Given the path and contents of a single project file, "
@@ -30,6 +31,6 @@ class FileReview(BaseModel):
 file_summarizer_agent = Agent(
     name="FileSummarizerAgent",
     instructions=FILE_SUMMARIZER_PROMPT,
-    model="gpt-4.1",
+    model=DEFAULT_MODEL,
     output_type=FileReview,
 )

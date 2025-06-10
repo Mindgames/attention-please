@@ -1,6 +1,6 @@
 # Database Design & Schema (Placeholder)
 
-This document is intended to contain the database schema, design rationale, and data flow for ReplyPilot systems.
+This document is intended to contain the database schema, design rationale, and data flow for Grais systems.
 
 **TODO:**
 

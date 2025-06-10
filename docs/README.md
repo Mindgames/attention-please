@@ -1,8 +1,8 @@
-# ReplyPilot Documentation
+# Grais Documentation
 
-Welcome to the central documentation hub for ReplyPilot. This repository contains information on our vision, technical architecture, project details, roadmap, guides, and processes.
+Welcome to the central documentation hub for Grais. This repository contains information on our vision, technical architecture, project details, roadmap, guides, and processes.
 
-**Core Philosophy:** ReplyPilot operates on a principle of **AI Augmentation**, where our technology enhances human communication capabilities rather than replacing them. The human remains central to all interactions, benefiting from AI-driven insights and suggestions while retaining full control. See the [Human-in-the-Loop Philosophy](vision/human-in-the-loop.md) for details.
+**Core Philosophy:** Grais operates on a principle of **AI Augmentation**, where our technology enhances human communication capabilities rather than replacing them. The human remains central to all interactions, benefiting from AI-driven insights and suggestions while retaining full control. See the [Human-in-the-Loop Philosophy](vision/human-in-the-loop.md) for details.
 
 ## Documentation Sections
 
@@ -17,8 +17,8 @@ Welcome to the central documentation hub for ReplyPilot. This repository contain
 
 ### Vision
 
-- [ReplyPilot Vision Statement](vision/vision.md) - Our core mission and vision
-- [Usage Scenarios](vision/usage-scenarios.md) - Detailed scenarios where ReplyPilot can transform communication
+- [Grais Vision Statement](vision/vision.md) - Our core mission and vision
+- [Usage Scenarios](vision/usage-scenarios.md) - Detailed scenarios where Grais can transform communication
 - [Human-in-the-Loop Philosophy](vision/human-in-the-loop.md) - Our approach to augmentation vs automation
 
 ### Technical

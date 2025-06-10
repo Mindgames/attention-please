@@ -1,6 +1,6 @@
-# ReplyPilot Reminder
+# Grais Reminder
 
-A simple reminder application that plays a sound and shows a notification every hour between 8am and 8pm to remind you to check back with the ReplyPilot system.
+A simple reminder application that plays a sound and shows a notification every hour between 8am and 8pm to remind you to check back with the Grais system.
 
 ## Requirements
 

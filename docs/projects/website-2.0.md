@@ -6,7 +6,7 @@
 
 ## Background & Rationale
 
-Our current website needs a refresh to better showcase ReplyPilot's evolving capabilities, improve user experience, and drive conversions. This project will deliver a modern, high-performing website aligned with our brand identity.
+Our current website needs a refresh to better showcase Grais's evolving capabilities, improve user experience, and drive conversions. This project will deliver a modern, high-performing website aligned with our brand identity.
 
 **Company Alignment:** Supports our Q2 goal to increase user acquisition and conversion rates through improved online presence.
 

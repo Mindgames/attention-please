@@ -1,4 +1,4 @@
-# ReplyPilot Engineering Hiring Guide
+# Grais Engineering Hiring Guide
 
 > **Goal**: Find top-tier AI-focused engineers for two key roles.
 > **Audience**: Co-founder/Recruiter to guide conversations.
@@ -7,7 +7,7 @@
 
 We're seeking builders who believe AI can fundamentally reshape communication and are passionate about our mission: giving everyone an equal opportunity to communicate, be understood, and understand others. If you're someone who has a deep understanding of the AI landscape, leverages it daily in your work, and is ready to invest significant time into this mission, you might be who we're looking for.
 
-**Please note:** These are not entry-level positions. We are looking for the top 1% of engineers – experienced individuals (mid-level to senior) capable of exceptional, high-impact work, taking full ownership, and driving projects forward autonomously. The early-stage nature of ReplyPilot demands significant dedication and a commitment that extends beyond a typical 9-to-5 schedule, reflecting the ambition of our mission and the scale of the opportunity.
+**Please note:** These are not entry-level positions. We are looking for the top 1% of engineers – experienced individuals (mid-level to senior) capable of exceptional, high-impact work, taking full ownership, and driving projects forward autonomously. The early-stage nature of Grais demands significant dedication and a commitment that extends beyond a typical 9-to-5 schedule, reflecting the ambition of our mission and the scale of the opportunity.
 
 Below is an overview of the technologies we use and the key roles we're hiring for.
 

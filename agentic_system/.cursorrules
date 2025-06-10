@@ -16,7 +16,7 @@
       "preferred": [
         {
           "term": "AI Augmentation",
-          "context": "Core philosophy of ReplyPilot, preferred over automation"
+          "context": "Core philosophy of Grais, preferred over automation"
         },
         {
           "term": "Human-in-the-Loop",
@@ -24,7 +24,7 @@
         },
         {
           "term": "Human-AI Partnership",
-          "context": "The relationship between users and AI in ReplyPilot"
+          "context": "The relationship between users and AI in Grais"
         }
       ],
       "avoid": [

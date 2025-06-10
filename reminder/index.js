@@ -5,7 +5,7 @@ const path = require("path");
 const os = require("os");
 
 // Log startup
-console.log("ReplyPilot Reminder System");
+console.log("Grais Reminder System");
 console.log("---------------------------");
 console.log("Reminder will run hourly between 8am and 8pm");
 console.log("Press Ctrl+C to exit");
@@ -27,7 +27,7 @@ function playSound() {
         console.error("Error playing sound:", err);
         // Fallback to notification sound
         notifier.notify({
-          title: "ReplyPilot Reminder",
+          title: "Grais Reminder",
           message: "Time to check back with the system!",
           sound: true,
         });
@@ -40,7 +40,7 @@ function playSound() {
         console.error("Error playing sound:", err);
         // Fallback to notification sound
         notifier.notify({
-          title: "ReplyPilot Reminder",
+          title: "Grais Reminder",
           message: "Time to check back with the system!",
           sound: true,
         });
@@ -49,7 +49,7 @@ function playSound() {
   } else {
     // For other platforms, rely on node-notifier's sound
     notifier.notify({
-      title: "ReplyPilot Reminder",
+      title: "Grais Reminder",
       message: "Time to check back with the system!",
       sound: true,
     });
@@ -68,7 +68,7 @@ function playReminder() {
 
     // Show notification (without sound since we handle it separately)
     notifier.notify({
-      title: "ReplyPilot Reminder",
+      title: "Grais Reminder",
       message: "Time to check back with the system!",
       icon: path.join(__dirname, "icon.png"), // Uses default icon if file doesn't exist
       sound: false,

@@ -5,7 +5,7 @@
 
 ## Purpose
 
-This document describes the next-generation agentic system for ReplyPilot, leveraging OpenAI Agents SDK 0.0.11. It is written for future maintainers and AI models, providing deep context, rationale, and design decisions to ensure continuity and extensibility.
+This document describes the next-generation agentic system for Grais, leveraging OpenAI Agents SDK 0.0.11. It is written for future maintainers and AI models, providing deep context, rationale, and design decisions to ensure continuity and extensibility.
 
 ## Why Upgrade?
 

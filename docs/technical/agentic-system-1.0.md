@@ -6,7 +6,7 @@
 
 ## Background & Rationale
 
-As we evolve our AI capabilities, building an agentic system will allow ReplyPilot to generate more intelligent and contextually rich _suggestions_. By coordinating information gathering between different sources and contexts, this system enhances the speed and quality of AI-driven suggestions presented to the user. Crucially, this system operates strictly within our core philosophy of **Human-in-the-Loop** and **AI Augmentation**, ensuring the user _always_ remains in control of final decisions and communications.
+As we evolve our AI capabilities, building an agentic system will allow Grais to generate more intelligent and contextually rich _suggestions_. By coordinating information gathering between different sources and contexts, this system enhances the speed and quality of AI-driven suggestions presented to the user. Crucially, this system operates strictly within our core philosophy of **Human-in-the-Loop** and **AI Augmentation**, ensuring the user _always_ remains in control of final decisions and communications.
 
 **Company Alignment:** Supports our Q2 goal to enhance AI capabilities by providing more sophisticated _suggestion generation_, ultimately leading to more powerful human augmentation.
 

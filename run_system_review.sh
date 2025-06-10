@@ -1,5 +1,5 @@
 #!/bin/bash
-# Run the ReplyPilot agent in SYSTEM-REVIEW mode automatically
+# Run the Grais agent in SYSTEM-REVIEW mode automatically
 
 set -e
 

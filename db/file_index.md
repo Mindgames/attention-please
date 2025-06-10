@@ -1,4 +1,4 @@
-# ReplyPilot Documentation Index
+# Grais Documentation Index
 
 This document indexes the key files within the `/docs` directory, outlining their purpose and content. The overarching philosophy emphasizes **AI Augmentation**, where the technology enhances human communication rather than automating it fully, keeping the human in control.
 
@@ -11,14 +11,14 @@ This document indexes the key files within the `/docs` directory, outlining thei
 ## Vision (`docs/vision/`)
 
 - **`docs/vision/human-in-the-loop.md`**
-  - **Purpose**: Explains the core philosophy of ReplyPilot's AI interaction model.
-  - **Description**: Details the principle of "Augmentation, Not Automation," emphasizing the human-AI partnership, the limitations of full automation, and how ReplyPilot implements this philosophy through suggestions, insights, and user control. Reinforces the idea that AI _augments_ human capabilities.
+  - **Purpose**: Explains the core philosophy of Grais's AI interaction model.
+  - **Description**: Details the principle of "Augmentation, Not Automation," emphasizing the human-AI partnership, the limitations of full automation, and how Grais implements this philosophy through suggestions, insights, and user control. Reinforces the idea that AI _augments_ human capabilities.
 - **`docs/vision/usage-scenarios.md`**
-  - **Purpose**: Illustrates practical applications of ReplyPilot across various domains.
-  - **Description**: Provides concrete examples (sales, executive comms, personal life, crisis management) showing how ReplyPilot _augments_ users by providing context, insights, and suggestions, while the human remains the decision-maker. Explicitly states it's an "augmentation tool."
+  - **Purpose**: Illustrates practical applications of Grais across various domains.
+  - **Description**: Provides concrete examples (sales, executive comms, personal life, crisis management) showing how Grais _augments_ users by providing context, insights, and suggestions, while the human remains the decision-maker. Explicitly states it's an "augmentation tool."
 - **`docs/vision/vision.md`**
   - **Purpose**: Intended for the core company vision statement.
-  - **Description**: _Currently empty_. Expected to contain the high-level mission and vision for ReplyPilot.
+  - **Description**: _Currently empty_. Expected to contain the high-level mission and vision for Grais.
 
 ## Technical (`docs/technical/`)
 

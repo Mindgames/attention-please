@@ -1,8 +1,8 @@
-# ReplyPilot: Human-in-the-Loop Philosophy
+# Grais: Human-in-the-Loop Philosophy
 
 ## Core Principle: Augmentation, Not Automation
 
-At ReplyPilot, we fundamentally believe that AI should augment human communication, not replace it. Our platform is built on the principle that the most powerful communication outcomes come from a human-AI partnership where:
+At Grais, we fundamentally believe that AI should augment human communication, not replace it. Our platform is built on the principle that the most powerful communication outcomes come from a human-AI partnership where:
 
 - Humans provide the genuine connection, creativity, and final judgment
 - AI provides enhanced memory, contextual understanding, and communication insights
@@ -12,7 +12,7 @@ At ReplyPilot, we fundamentally believe that AI should augment human communicati
 
 ### Communication Is Fundamentally Human
 
-Communication isn't just about information exchange—it's about connection, empathy, and shared understanding. These qualities can only exist authentically between humans. ReplyPilot recognizes that by keeping humans at the center of all communication:
+Communication isn't just about information exchange—it's about connection, empathy, and shared understanding. These qualities can only exist authentically between humans. Grais recognizes that by keeping humans at the center of all communication:
 
 - The authenticity of human connection is preserved
 - Legal and ethical responsibility remains clear
@@ -28,11 +28,11 @@ Fully automated communication systems suffer from critical limitations:
 3. **Responsibility Gap**: They create ambiguity about who is responsible for communication outcomes
 4. **Trust Erosion**: They risk damaging trust when detected or when they fail in unexpected ways
 
-## How ReplyPilot Implements Human-in-the-Loop
+## How Grais Implements Human-in-the-Loop
 
 ### 1. Suggestion-Based Interface
 
-ReplyPilot never sends communications automatically. Instead, it:
+Grais never sends communications automatically. Instead, it:
 
 - Suggests response approaches based on context and history
 - Provides multiple options for the human to consider
@@ -41,7 +41,7 @@ ReplyPilot never sends communications automatically. Instead, it:
 
 ### 2. Contextual Insights
 
-Rather than deciding what's important, ReplyPilot surfaces information to inform human judgment:
+Rather than deciding what's important, Grais surfaces information to inform human judgment:
 
 - Highlights potentially overlooked details from past conversations
 - Identifies emotional tones that might not be immediately apparent
@@ -50,7 +50,7 @@ Rather than deciding what's important, ReplyPilot surfaces information to inform
 
 ### 3. Intent Clarification
 
-ReplyPilot helps humans understand the true intent behind incoming communications:
+Grais helps humans understand the true intent behind incoming communications:
 
 - Analyzes what someone might really be asking for beneath their words
 - Identifies potential misalignments in understanding
@@ -84,11 +84,11 @@ The system improves based on human decisions:
 
 ## The Future: Deeper Human-AI Partnership
 
-As ReplyPilot evolves, the human-AI partnership will deepen through:
+As Grais evolves, the human-AI partnership will deepen through:
 
 - **Personalized Coaching**: AI that helps you develop specific communication skills
 - **Emotional Intelligence Support**: Better recognition and suggestions for emotional nuances
 - **Cross-Cultural Insights**: Help navigating communication across cultural differences
 - **Relationship Management**: Deeper understanding of relationship dynamics and history
 
-Throughout this evolution, one principle remains constant: humans will always be the decision-makers, with ReplyPilot serving as a trusted advisor that enhances natural human capabilities rather than replacing them.
+Throughout this evolution, one principle remains constant: humans will always be the decision-makers, with Grais serving as a trusted advisor that enhances natural human capabilities rather than replacing them.

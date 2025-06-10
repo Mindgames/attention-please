@@ -1,6 +1,6 @@
 # Agentic System 2.0
 
-This directory contains the implementation of the next-generation agentic system for ReplyPilot, based on the design in `docs/technical/agentic-system-2.0.md`.
+This directory contains the implementation of the next-generation agentic system for Grais, based on the design in `docs/technical/agentic-system-2.0.md`.
 
 ## Overview
 
