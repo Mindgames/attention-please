@@ -15,6 +15,7 @@ See `projects/README.md` for the current project index.
 This repo keeps tools that use the OpenAI Agents SDK. The `research_bot` project is an example of a personal tool built on it.
 
 - Run: `python -m projects.research_bot.main`
+- Run daily focus assistant: `python -m operator.main`
 - Requires Python 3.10+ and a configured `.env` with your API key(s)
 
 ## Add a New Project
