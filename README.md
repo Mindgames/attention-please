@@ -6,7 +6,7 @@ Codex & Claude SKILL that notifies you when your attention is needed.
 
 Compatibile with MacOS, Windows and Linux comming soon
 
-## Install
+## Install instructions
 
 ### Codex
 
@@ -36,7 +36,7 @@ Project install (only this repo), then restart Claude:
 git clone https://github.com/Mindgames/attention-please.git /path/to/your-repo/.claude/skills/attention-please
 ```
 
-## Use
+## Instruct Agent to use it
 
 Tell your agent to run the skill at the end of each turn or when input/confirmation is needed:
 
