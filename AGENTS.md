@@ -30,6 +30,9 @@ This repo has no build step. Run the script directly:
 - Run from a git repo so `git remote get-url origin` can resolve a project name, or set `ATTENTION_PLEASE_PROJECT`.
 - Avoid adding network or destructive operations; this script should remain side-effect light.
 
+## Agent Behavior
+- Use the `attention-please` script to play the alert at the end of each turn or whenever user input/confirmation is needed.
+
 ## Commit & Pull Request Guidelines
 - Use short, imperative commit messages; current history shows `Initial attention-please skill`.
 - Keep changes scoped; update `README.md` and `SKILL.md` when behavior changes.
