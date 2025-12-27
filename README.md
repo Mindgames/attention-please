@@ -1,6 +1,6 @@
 # Attention Please
 
-A Codex and Claude Agent SKILL that pings and speaks when a run ends or needs input.
+A Codex and Claude Agent SKILL that notifies you when your attention is needed.
 
 ![Support](supported.png)
 
