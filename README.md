@@ -1,10 +1,10 @@
 # attention-please
 
-Codex & Claude skill that notifies you when your attention is needed.
+Codex & Claude SKILL that notifies you when your attention is needed.
 
 ![Support](supported.png)
 
-Plays a macOS ping and says: "Project NAME needs your attention."
+Compatibile with MacOS, Windows and Linux comming soon
 
 ## Install
 
@@ -41,27 +41,9 @@ git clone https://github.com/Mindgames/attention-please.git /path/to/your-repo/.
 Tell your agent to run the skill at the end of each turn or when input/confirmation is needed:
 
 ```text
-Please update AGENTS.md to run the attention-please skill at the end of each turn or when input/confirmation is needed.
+$attention-please update AGENTS.md to run the attention-please skill at the end of each turn or when input/confirmation is needed.
 ```
 
-Run the script manually from the repo you want announced:
+---
 
-```bash
-~/.codex/skills/public/attention-please/scripts/attention-please.sh
-```
-
-If you installed for Claude, run:
-
-```bash
-~/.claude/skills/attention-please/scripts/attention-please.sh
-```
-
-If you installed at the project level, run:
-
-```bash
-./.codex/skills/attention-please/scripts/attention-please.sh
-```
-
-```bash
-./.claude/skills/attention-please/scripts/attention-please.sh
-```
+Follow me on X: https://x.com/mathiiias123
