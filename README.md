@@ -1,7 +1,7 @@
 # attention-please
 
 A tiny macOS helper that plays a ping and speaks: "Project NAME needs your attention."
-Built as a Codex skill, and also compatible with the Claude CLI, but it works anywhere you can run bash.
+Built as a Codex skill and compatible with Claude Code / Claude CLI, but it works anywhere you can run bash.
 
 ## Features
 
@@ -16,13 +16,52 @@ Built as a Codex skill, and also compatible with the Claude CLI, but it works an
 
 ## Install
 
+### Codex (global)
+
 Clone into your Codex skills folder:
 
 ```bash
-git clone https://github.com/Mindgames/attention-please.git ~/.codex/skills/public/attention-please
+git clone https://github.com/Mindgames/attention.git ~/.codex/skills/public/attention-please
 ```
 
-Or clone anywhere and run the script directly.
+Run it directly from that location:
+
+```bash
+~/.codex/skills/public/attention-please/scripts/attention-please.sh
+```
+
+### Claude Code / Claude CLI (global)
+
+Clone into your Claude skills folder:
+
+```bash
+git clone https://github.com/Mindgames/attention.git ~/.claude/skills/attention-please
+```
+
+Restart Claude Code/CLI so it loads the skill.
+
+### Install in a specific repo (shared)
+
+Use a submodule to keep updates clean:
+
+```bash
+git submodule add https://github.com/Mindgames/attention.git tools/attention-please
+git submodule update --init --recursive
+```
+
+Then run it from your repo:
+
+```bash
+tools/attention-please/scripts/attention-please.sh
+```
+
+If you want Claude Code/CLI to load it as a project skill, add a second checkout under `.claude/skills/`:
+
+```bash
+git submodule add https://github.com/Mindgames/attention.git .claude/skills/attention-please
+```
+
+Restart Claude Code/CLI so it picks up the project skill.
 
 ## Usage
 
@@ -89,6 +128,24 @@ Enable verbose warnings:
 ```bash
 ATTENTION_PLEASE_VERBOSE=1 scripts/attention-please.sh
 ```
+
+## Automatic usage
+
+### Codex (AGENTS.md in your target repo)
+
+Add a short instruction so Codex runs the skill automatically when it needs your attention:
+
+```markdown
+## Codex
+- Use the attention-please skill at the end of a run or before asking for input by running `tools/attention-please/scripts/attention-please.sh`.
+```
+
+If you installed it globally or vendored it into `scripts/`, adjust the path accordingly.
+
+### Claude Code / Claude CLI
+
+Claude loads skills automatically from `~/.claude/skills/` (personal) or `.claude/skills/` (project).
+Once installed, just restart Claude and it will apply the skill when your request matches the description.
 
 ## Troubleshooting
 
