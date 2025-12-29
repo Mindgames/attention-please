@@ -12,7 +12,7 @@ Play a short audible alert and a spoken prompt indicating which project needs at
 ## Workflow
 
 1. Run from inside the target repo so the script can read the git remote.
-2. Execute `scripts/attention-please.sh`.
+2. Execute `~/.codex/skills/public/attention-please/scripts/attention-please.sh`.
 3. Continue with your response to the user.
 
 ### Project name resolution
@@ -39,5 +39,5 @@ Play a short audible alert and a spoken prompt indicating which project needs at
 ## Example
 
 ```bash
-ATTENTION_PLEASE_PROJECT="quiz-juice" ATTENTION_PLEASE_SAY_VOICE="Samantha" scripts/attention-please.sh
+ATTENTION_PLEASE_PROJECT="project-name" ATTENTION_PLEASE_SAY_VOICE="Samantha" ~/.codex/skills/public/attention-please/scripts/attention-please.sh
 ```
