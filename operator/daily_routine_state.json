@@ -1,0 +1,14 @@
+{
+  "date": "2026-01-19",
+  "pending_start_checkin": true,
+  "auto_checkin": {
+    "pid": 71868,
+    "started_at": "2026-01-11T18:03:05.877214+01:00",
+    "interval_minutes": 5,
+    "notify_only": true,
+    "config_path": "/Users/mathiasasberg/Projects/satcom/operator/daily_checkin_config.json",
+    "log_path": "/Users/mathiasasberg/Projects/satcom/operator/auto_checkin.log",
+    "last_seen_at": "2026-01-19T12:38:09.461058+02:00"
+  },
+  "last_run_at": "2026-01-19T12:38:09.461058+02:00"
+}

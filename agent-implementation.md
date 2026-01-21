@@ -5,34 +5,34 @@
 - Configure `OPENAI_API_KEY` via `.env` or shell environment.
 
 ## Package Scaffolding
-- Add a top-level `operator/` package (outside `projects/`).
+- Add a top-level `focus_operator/` package (outside `projects/`).
 - Include `__init__.py`, `main.py`, and an `agents/` subpackage placeholder.
 - Store shared artifacts (`tasks.md`, `schedule_tmp.md`, `schedule.md`) alongside the package at the repository root.
 
 ## File Tools
-- Implement `operator/tools.py` exposing `ReadFileTool` and `WriteFileTool` wrappers.
+- Implement `focus_operator/tools.py` exposing `ReadFileTool` and `WriteFileTool` wrappers.
 - Restrict tool paths to the repository root to prevent accidental writes elsewhere.
 
 ## ProjectReviewAgent
-- Implement `operator/agents/project_review_agent.py` to scan each project directory for `PROJECT.md`.
+- Implement `focus_operator/agents/project_review_agent.py` to scan each project directory for `PROJECT.md`.
 - Use `ReadFileTool` to extract open tasks and evaluate project status.
 - Append prioritized items to the top-level `tasks.md` via `WriteFileTool`.
 - Return a `ProjectReport` model with tasks to migrate and notes on project health.
 
 ## TaskLoaderAgent
-- Implement `operator/agents/task_loader_agent.py` with a Pydantic model representing tasks (name, category, priority, estimate).
+- Implement `focus_operator/agents/task_loader_agent.py` with a Pydantic model representing tasks (name, category, priority, estimate).
 - Use `ReadFileTool` to load tasks from `tasks.md` and return structured data.
 
 ## TimeAllocatorAgent
-- Add `operator/agents/time_allocator_agent.py` to accept the task list and generate a daily schedule.
+- Add `focus_operator/agents/time_allocator_agent.py` to accept the task list and generate a daily schedule.
 - Provide a `ScheduleDraft` model and use `WriteFileTool` to output `schedule_tmp.md`.
 
 ## EvaluatorAgent
-- Implement `operator/agents/evaluator_agent.py` to review the draft schedule for time conflicts and balance.
+- Implement `focus_operator/agents/evaluator_agent.py` to review the draft schedule for time conflicts and balance.
 - Return `{approved: bool, reason: str}` to indicate evaluation result.
 
 ## FocusManager Orchestrator
-- Create `operator/manager.py` to coordinate agents and run a refinement loop until evaluation passes or the attempt limit is reached.
+- Create `focus_operator/manager.py` to coordinate agents and run a refinement loop until evaluation passes or the attempt limit is reached.
 - Invoke `ProjectReviewAgent` first to refresh `tasks.md` and gather project evaluations.
 - Run `TaskLoaderAgent` → `TimeAllocatorAgent` → `EvaluatorAgent` on the updated task list.
 - On success, persist the final schedule to `schedule.md`.
@@ -55,7 +55,7 @@
 - **Context handoff**: FocusManager feeds each agent only the previous agent's structured output. Evaluation feedback is appended to the next `TimeAllocatorAgent` prompt during refinement loops, while large artifacts are passed via shared files (`tasks.md`, `schedule_tmp.md`).
 
 ## CLI & Interactive Chat
-- Build `operator/main.py` to launch an interactive terminal chat with `FocusManager` using the Agents SDK.
+- Build `focus_operator/main.py` to launch an interactive terminal chat with `FocusManager` using the Agents SDK.
 - Chat loop: prompt the user, send messages to `FocusManager.chat()`, stream replies, and allow commands like `schedule` or `exit`.
 - Document usage in `README.md` and update repository-level docs as features evolve.
   ```python
@@ -68,8 +68,8 @@
           reply = await manager.chat(user)
           print("agent:", reply)
   ```
-- Expose CLI via `python -m operator.main`.
+- Expose CLI via `python -m focus_operator.main`.
 
 ## Future Enhancements
-- Add tests under `operator/tests/` for agent interactions and chat flows.
+- Add tests under `focus_operator/tests/` for agent interactions and chat flows.
 - Consider calendar integration, recurring task support, and persistent conversation history.

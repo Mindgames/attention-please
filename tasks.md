@@ -1,3 +1,55 @@
-# Tasks
 
-- Example task: placeholder until agents populate
+- [ ] Define the daily loop checklist (morning, midday, shutdown) in `projects/personal-task-manager/PROJECT.md` :: priority=H; due=2025-12-30; time=60m; project=personal-task-manager
+- [ ] Triage `tasks.md`: tag top 10 with priority + due and flag stale items :: priority=H; due=2025-12-31; time=90m; project=personal-task-manager
+- [x] Define rolling schedule parameters (blocks per check-in) :: priority=M; due=2025-12-31; time=30m; project=personal-task-manager
+- [ ] Run the operator once and validate that `schedule.md` matches reality :: priority=M; due=2025-12-31; time=30m; project=personal-task-manager
+- [ ] Draft weekly review template (project health + backlog cleanup) :: priority=M; due=2026-01-03; time=60m; project=personal-task-manager
+- [ ] Finalize focus/break rhythm and well-being menu (stretching, breathing, pushups) :: priority=M; due=2025-12-31; time=30m; project=personal-task-manager
+- [ ] Move money for Warsaw flight :: priority=H; due=2025-12-29; time=15m; project=private; context=personal
+- [ ] Book flight to Warsaw (Tue/Wed) :: priority=H; due=2025-12-29; time=30m; project=private; context=personal; notes=after funds are ready
+- [ ] Set aside EUR 2k for dentist step 1 (upper teeth replacement) :: priority=M; due=unset; time=15m; project=private; context=personal
+- [ ] Plan/save EUR 7k for veneers (next stage) :: priority=L; due=unset; time=30m; project=private; context=personal
+- [x] Draft 0.8 outcomes list (3-5 outcomes) :: priority=H; due=2026-01-21; time=30m; project=grais-ai
+- [x] Map 0.8 workstreams + owners :: priority=H; due=2026-01-21; time=45m; project=grais-ai
+- [x] Define 0.8 acceptance gates + QA approach :: priority=H; due=2026-01-22; time=30m; project=grais-ai
+- [x] Convert 0.8 plan into milestones/tickets with dates :: priority=H; due=2026-01-23; time=60m; project=grais-ai
+- [ ] Define Grais.ai beta-ready checklist and success criteria :: priority=H; due=2026-01-04; time=60m; project=grais-ai
+- [ ] Map DB fields/events needed for PostHog analytics (align with grais-api#350) :: priority=H; due=2026-01-21; time=60m; project=grais-ai
+- [ ] Implement remote function disable for Grais stack :: priority=H; due=2026-01-21; time=90m; project=grais-ai
+- [ ] Quizjuice forward session (pick 1 MVP improvement and ship) :: priority=M; due=2026-01-21; time=90m; project=quizjuice
+- [ ] Update external conversation summary function :: priority=H; due=2026-01-04; time=90m; project=grais-ai
+- [ ] Add conversation type + goal detection :: priority=H; due=2026-01-04; time=90m; project=grais-ai
+- [ ] Audit prompts and tools for beta readiness (fix list) :: priority=H; due=2026-01-04; time=90m; project=grais-ai
+- [ ] Prepare beta tester rollout plan (who, access, feedback loop) :: priority=M; due=2026-01-04; time=60m; project=grais-ai
+- [ ] Kick off Grais.ai fundraising prep (investor list + deck outline) :: priority=H; due=2026-01-06; time=120m; project=grais-ai
+- [ ] Draft fundraising foundation note (round target, runway, milestones, use of funds, 3 metrics) :: priority=H; due=2026-01-02; time=30m; project=grais-ai
+- [ ] Define graph DB investor filter spec (EU AI, stage, check size, thesis tags) and send to Aziz :: priority=H; due=2026-01-02; time=15m; project=grais-ai
+- [ ] Send fundraising kickoff to Aziz/Alexsej/Manuel with deliverables and dates :: priority=H; due=2026-01-02; time=10m; project=grais-ai
+- [ ] Aziz: pull top 20 EU AI investors from graph DB with notes + contacts :: priority=M; due=2026-01-04; project=grais-ai; owner=Aziz
+- [ ] Alexsej: draft pitch spine + 3 core slides (problem, traction, ask/use of funds) :: priority=M; due=2026-01-04; project=grais-ai; owner=Alexsej
+- [ ] Manuel: draft outreach templates + 10 warm intro targets :: priority=M; due=2026-01-04; project=grais-ai; owner=Manuel
+- [ ] Share roadmap + milestone docs from new-v/ with API and Extension leads; ask for written questions EOD :: priority=H; due=2026-01-10; time=30m; project=grais-ai
+- [ ] Schedule 60-min kickoff with API + Extension leads to confirm milestone order (0.9 → 0.12) and dependencies :: priority=H; due=2026-01-10; time=20m; project=grais-ai
+- [ ] Assign single owner per milestone per team; set deadline to convert each doc into detailed plan + tickets :: priority=H; due=2026-01-10; time=30m; project=grais-ai
+- [ ] Agree on acceptance gates and test approach per milestone (human QA + automated tests) :: priority=H; due=2026-01-10; time=45m; project=grais-ai
+- [ ] Set weekly check-in cadence and define go/no-go review per milestone :: priority=H; due=2026-01-10; time=30m; project=grais-ai
+- [ ] Update Grais website changelog for milestone 0.7 :: priority=H; due=2026-01-16; time=60m; project=grais-website; milestone=0.7
+- [ ] Define Quizjuice finish checklist (layout/pipeline, streaming proxy) :: priority=H; due=2026-01-05; time=45m; project=quizjuice
+- [x] Fix layout and pipeline of images/quizzes :: priority=H; due=unset; time=120m; project=quizjuice
+- [ ] Improve Quizjuice UI (bigger animals, align, easier questions) :: priority=H; due=2026-01-06; time=120m; project=quizjuice
+- [ ] Add question variety with categories by type and age group :: priority=H; due=2026-01-11; time=120m; project=quizjuice
+- [ ] Run first Quizjuice test stream :: priority=H; due=2026-01-11; time=120m; project=quizjuice
+- [ ] Connect streaming proxy to YouTube/Twitch/TikTok/Facebook/Instagram/Kick :: priority=H; due=2026-01-11; time=120m; project=quizjuice
+- [ ] Collect 3 key references (specs/notes) and paste links in doc :: priority=M; due=today; context=proposal; time=10m
+- [ ] Enable DND and set two 25‑min timers; then start drafting skeleton headings :: priority=M; due=today; context=focus; time=5m
+- [ ] Decide tomorrow’s start time and first 2 deep‑work blocks (90 min total) :: priority=H; due=2025-09-09; time=10m
+- [ ] Write your top 3 outcomes for tomorrow (1 line each) :: priority=H; due=2025-09-09; time=10m
+- [ ] Prep morning: preset DND, set timer template, open proposal doc to headings :: priority=M; due=2025-09-09; time=5m
+- [ ] Draft evaluation criteria for E2E tools and libraries covering agents and IDE flows :: priority=H :: project=sota-testing-frameworks; due=unset
+- [ ] Compile a shortlist of 5–7 candidate frameworks with pros/cons and ecosystem fit :: priority=H :: project=sota-testing-frameworks; due=unset
+- [ ] Define initial test matrix (OS, Python/Node versions, IDE target, headless vs GUI) :: priority=H :: project=sota-testing-frameworks; due=unset
+- [ ] Author a 1-page harness architecture proposal (runner, adapters, fixtures, reporting) :: priority=H :: project=sota-testing-frameworks; due=unset
+- [ ] Scaffold minimal sample projects for fixtures: hello-world Python and JS repos :: priority=M :: project=sota-testing-frameworks; due=unset
+- [ ] Set up CI workflow (e.g., GitHub Actions) to run a placeholder test and publish JUnit-style reports :: priority=M :: project=sota-testing-frameworks; due=unset
+- [ ] Prototype a minimal harness CLI that discovers and runs a no-op test across Python and JS :: priority=M :: project=sota-testing-frameworks; due=unset
+- [ ] Spike an IDE automation test using VS Code test tooling to validate feasibility in CI :: priority=M :: project=sota-testing-frameworks; due=unset

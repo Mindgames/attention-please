@@ -16,9 +16,10 @@ Keep it simple: every project has a single source of truth in `projects/<slug>/P
 Use `projects/PROJECT_TEMPLATE.md` to start a new project.
 
 ## Programs with subprojects
-For multi-part programs, create a parent folder with a program-level `PROJECT.md` plus subfolders for each subproject (each with its own `PROJECT.md`). See `projects/igaming-change-intelligence/`.
+For multi-part programs, create a parent folder with a program-level `PROJECT.md` plus subfolders for each subproject (each with its own `PROJECT.md`). See `projects/quizjuice/`.
 
 ## Conventions
 - Dates: `YYYY-MM-DD`.
 - Status: Planned | In Progress | On Hold | Done.
+- Tasks: Use checkable lists for Top Tasks (`- [ ]` when open; `- [x]` when done). The global `tasks.md` must also use checkable bullets; when migrating tasks from projects, add them as `- [ ] ...` and include metadata where known (`:: priority=H|M|L; due=YYYY-MM-DD; owner=@x`).
 - Prefer brevity. If a project needs deep history, keep only the last week in “Recent Activity” and summarize older items inline or archive as needed.

@@ -1,0 +1,111 @@
+[
+  {
+    "session_id": "cf69e317af4746deadcb44bedbac59e8",
+    "topic": "Grais.ai: refactor conversation summarization + type/goal",
+    "planned_focus_minutes": 90.0,
+    "planned_break_minutes": 15,
+    "started_at": "2025-12-28T16:38:34.250365+01:00",
+    "ended_at": "2025-12-28T19:27:40.657888+01:00"
+  },
+  {
+    "session_id": "81afdbb5e4514271a681df92a308f92a",
+    "topic": "Grais.ai: align tracing output",
+    "planned_focus_minutes": 90,
+    "planned_break_minutes": 15,
+    "started_at": "2025-12-28T19:52:27.052128+01:00",
+    "ended_at": "2025-12-28T20:57:18.023467+01:00"
+  },
+  {
+    "session_id": "122b37e1c5a546218c210d9b98751b63",
+    "topic": "structured outputs verification",
+    "planned_focus_minutes": 90,
+    "planned_break_minutes": 15,
+    "started_at": "2026-01-06T10:49:00.535598+01:00",
+    "ended_at": "2026-01-06T12:19:10.031581+01:00"
+  },
+  {
+    "timestamp": "2026-01-07T12:05:54.993519+01:00",
+    "mode": "start",
+    "note": "Captured start check-in via chat; details stored in daily notes/state log."
+  },
+  {
+    "session_id": "d5df74964ae4432380d74c43a5605463",
+    "topic": "Grais prompt update",
+    "planned_focus_minutes": 60.0,
+    "planned_break_minutes": 15.0,
+    "started_at": "2026-01-07T12:05:21.277039+01:00",
+    "ended_at": "2026-01-07T13:05:32.269839+01:00"
+  },
+  {
+    "session_id": "ca0189658b734f96b122126e859695af",
+    "topic": "Grais",
+    "planned_focus_minutes": 60.0,
+    "planned_break_minutes": 15.0,
+    "started_at": "2026-01-07T13:13:38.274527+01:00",
+    "ended_at": "2026-01-07T14:13:46.078150+01:00"
+  },
+  {
+    "session_id": "5bb68c30e87b40608a00b0e8ba4ace7e",
+    "topic": "Grais",
+    "planned_focus_minutes": 60.0,
+    "planned_break_minutes": 15.0,
+    "started_at": "2026-01-07T13:53:03.551075+01:00",
+    "ended_at": "2026-01-07T14:53:11.203523+01:00"
+  },
+  {
+    "session_id": "0ffa80ba768d4148ade8b853d1788894",
+    "topic": "Grais prompt improvement",
+    "planned_focus_minutes": 60.0,
+    "planned_break_minutes": 15.0,
+    "started_at": "2026-01-07T14:30:32.024621+01:00",
+    "ended_at": "2026-01-07T15:30:40.693894+01:00"
+  },
+  {
+    "session_id": "964f879af3b44c118f9ae5db957c0e66",
+    "topic": "Grais prompt",
+    "planned_focus_minutes": 60.0,
+    "planned_break_minutes": 15.0,
+    "started_at": "2026-01-08T14:07:26.386848+01:00",
+    "ended_at": "2026-01-08T15:07:36.902942+01:00"
+  },
+  {
+    "session_id": "a552e924fdeb447aac69430ae632300e",
+    "topic": "Grais prompt",
+    "planned_focus_minutes": 60.0,
+    "planned_break_minutes": 15.0,
+    "started_at": "2026-01-08T14:09:39.916103+01:00",
+    "ended_at": "2026-01-08T15:09:48.386906+01:00"
+  },
+  {
+    "session_id": "ada1e0375f0449f69b7fa60e1b0482ff",
+    "topic": "Grais prompt",
+    "planned_focus_minutes": 60.0,
+    "planned_break_minutes": 15.0,
+    "started_at": "2026-01-08T15:28:16.935022+01:00",
+    "ended_at": "2026-01-08T16:28:24.740462+01:00"
+  },
+  {
+    "session_id": "2110ca0848de4906ab4462078f49b909",
+    "topic": "Grais prompt+summary",
+    "planned_focus_minutes": 60.0,
+    "planned_break_minutes": 15.0,
+    "started_at": "2026-01-09T11:49:32.643035+01:00",
+    "ended_at": "2026-01-09T12:49:41.251450+01:00"
+  },
+  {
+    "session_id": "a2628e90ecd64b97907e1263b7e9635c",
+    "topic": "Grais toolcall UI wiring",
+    "planned_focus_minutes": 60.0,
+    "planned_break_minutes": 15.0,
+    "started_at": "2026-01-09T12:55:40.481350+01:00",
+    "ended_at": "2026-01-09T13:55:49.492177+01:00"
+  },
+  {
+    "session_id": "b162b5f328a4481598d6016651d7affc",
+    "topic": "Grais planning",
+    "planned_focus_minutes": 60.0,
+    "planned_break_minutes": 15.0,
+    "started_at": "2026-01-09T16:02:18.037537+01:00",
+    "ended_at": "2026-01-09T17:02:26.801378+01:00"
+  }
+]

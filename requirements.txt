@@ -1,4 +1,0 @@
-openai
-pydantic
-rich
-pytest
