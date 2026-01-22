@@ -106,15 +106,12 @@ if is_truthy "$no_say"; then
   printf '%s\n' "$message"
 else
   if command -v say >/dev/null 2>&1; then
-    say_args=()
-    if [ -n "$say_voice" ]; then
-      say_args+=("-v" "$say_voice")
-    fi
-    if [ -n "$say_rate" ]; then
-      say_args+=("-r" "$say_rate")
-    fi
-    if [ "${#say_args[@]}" -gt 0 ]; then
-      say "${say_args[@]}" "$message"
+    if [ -n "$say_voice" ] && [ -n "$say_rate" ]; then
+      say -v "$say_voice" -r "$say_rate" "$message"
+    elif [ -n "$say_voice" ]; then
+      say -v "$say_voice" "$message"
+    elif [ -n "$say_rate" ]; then
+      say -r "$say_rate" "$message"
     else
       say "$message"
     fi
