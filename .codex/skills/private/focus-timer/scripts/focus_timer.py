@@ -140,6 +140,54 @@ def play_pips(
             time.sleep(pause_seconds)
 
 
+def run_attention_notice() -> None:
+    """Trigger the attention-please alert for satcom."""
+    script = (
+        Path.home()
+        / ".codex"
+        / "skills"
+        / "public"
+        / "attention-please"
+        / "scripts"
+        / "attention-please.sh"
+    )
+    if not script.exists():
+        return
+    subprocess.run(
+        ["env", "ATTENTION_PLEASE_PROJECT=satcom", str(script)],
+        check=False,
+    )
+
+
+def start_nag(mode: str, session_id: str, started_at: str, interval_minutes: int = 5) -> None:
+    """Start a background alert loop until the user responds."""
+    script = Path(__file__).resolve().parent / "nag_until_response.py"
+    if not script.exists():
+        return
+    command = [
+        sys.executable,
+        str(script),
+        "--mode",
+        mode,
+        "--session-id",
+        session_id,
+        "--started-at",
+        started_at,
+        "--interval-minutes",
+        str(interval_minutes),
+    ]
+    try:
+        subprocess.Popen(
+            command,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            stdin=subprocess.DEVNULL,
+            start_new_session=True,
+        )
+    except Exception:
+        return
+
+
 def speak(message: str, voice: str | None) -> None:
     """Speak a message using the system TTS if available."""
     if not message:
@@ -482,12 +530,21 @@ def main() -> None:
                 },
             )
             announce(
-                "Break is over.",
+                "Break is over. Quick note: what did you do during the break and what's next?",
                 speech_enabled,
                 voice,
                 args.sound,
                 args.volume,
                 args.volume_boost,
+            )
+            run_attention_notice()
+            start_nag(
+                "break",
+                session_id,
+                datetime.fromtimestamp(break_started_at)
+                .astimezone()
+                .isoformat(),
+                interval_minutes=5,
             )
         finally:
             clear_state()
@@ -541,6 +598,13 @@ def main() -> None:
                 "ended_at": datetime.now().astimezone().isoformat(),
             }
         )
+        run_attention_notice()
+        start_nag(
+            "focus",
+            session_id,
+            datetime.now().astimezone().isoformat(),
+            interval_minutes=5,
+        )
         if args.break_minutes > 0:
             break_start = (
                 "Focus session complete. "
@@ -578,12 +642,21 @@ def main() -> None:
                 },
             )
             announce(
-                "Break is over.",
+                "Break is over. Quick note: what did you do during the break and what's next?",
                 speech_enabled,
                 voice,
                 args.sound,
                 args.volume,
                 args.volume_boost,
+            )
+            run_attention_notice()
+            start_nag(
+                "break",
+                session_id,
+                datetime.fromtimestamp(break_started_at)
+                .astimezone()
+                .isoformat(),
+                interval_minutes=5,
             )
         else:
             announce(
@@ -593,6 +666,13 @@ def main() -> None:
                 args.sound,
                 args.volume,
                 args.volume_boost,
+            )
+            run_attention_notice()
+            start_nag(
+                "focus",
+                session_id,
+                datetime.now().astimezone().isoformat(),
+                interval_minutes=5,
             )
     finally:
         clear_state()

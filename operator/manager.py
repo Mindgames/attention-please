@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from agents import Runner
 
@@ -343,15 +343,36 @@ class FocusManager:
         print(terminal.success(f"Parsed {len(tasks.tasks)} tasks."))
 
         now_str = self._now_string()
+        work_window = os.getenv("FOCUS_WINDOW", "").strip()
+        block_minutes = os.getenv("FOCUS_BLOCK_MINUTES", "90").strip()
+        break_minutes = os.getenv("FOCUS_BREAK_MINUTES", "15").strip()
+        blocks_per_checkin = os.getenv("FOCUS_BLOCKS_PER_CHECKIN", "2").strip()
+        preference_lines = [
+            f"Default focus block length: {block_minutes} minutes.",
+            f"Break length: {break_minutes} minutes.",
+            f"Blocks per check-in: {blocks_per_checkin}.",
+        ]
+        if work_window:
+            preference_lines.append(
+                f"Workday window: {work_window}. Schedule H hours inside this window."
+            )
+        else:
+            preference_lines.append(
+                "Rolling 'start-now' schedule: start at the next 5-minute increment after now and schedule H hours forward."
+            )
+        preference_lines.append(
+            "Reduce context switching; cluster by project; include a 15–30 min buffer near the end."
+        )
+        preference_lines.append(
+            "Do not assume fixed lunch/dinner times unless explicitly requested."
+        )
+        preferences = "Preferences: " + " ".join(preference_lines)
         base_context = (
             "You are a professional focus operator optimizing for impact.\n"
             f"Today: {now_str}\n"
             f"Goals: {goals}\n"
             f"Available hours: {hours}\n"
-            "Preferences: Workday window 09:00–21:00 (996). Schedule H hours within this window. "
-            "Prioritize deep-work blocks (60–90 min) for high-value tasks; reduce context switching; "
-            "add 10–15 min breaks between blocks; include a ~30 min lunch around 12:30 and a ~30 min dinner around 18:30; "
-            "reserve a 15–30 min buffer near the end.\n"
+            f"{preferences}\n"
             + (f"User note: {note}\n" if note else "")
             + f"Tasks: {tasks.model_dump_json()}"
         )
@@ -739,6 +760,19 @@ class FocusManager:
         import re
 
         date_re = re.compile(r"\b(20\d{2}-\d{2}-\d{2})\b")
+        today = datetime.now().astimezone().date()
+
+        def normalize_due(value: str) -> str:
+            if not value:
+                return "unset"
+            lower = value.strip().lower()
+            if lower == "today":
+                return today.isoformat()
+            if lower == "tomorrow":
+                return (today + timedelta(days=1)).isoformat()
+            if lower == "yesterday":
+                return (today - timedelta(days=1)).isoformat()
+            return value
 
         # Build simple project inference index
         projs_dir = repo_root / "projects"
@@ -831,6 +865,8 @@ class FocusManager:
                     tokens["due"] = m2.group(1)
             else:
                 tokens["due"] = "unset"
+
+            tokens["due"] = normalize_due(tokens["due"])
 
             if "priority" not in tokens:
                 imp = tokens.get("impact")

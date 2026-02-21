@@ -5,3 +5,5 @@
 {"timestamp": "2026-01-09T11:48:34.259114+01:00", "mode": "start", "outcomes": ["Grais prompt+summary", "convo type/goal detection", "Quizjuice streaming prep"], "first_project": "Grais.ai", "constraint": "Overdue items across projects; need strict prioritization today."}
 {"timestamp": "2026-01-11T18:09:50.862931+01:00", "mode": "start", "sleep_hours": "8", "energy": "2", "focus": "2", "stress": "3", "outcomes": ["move Quizjuice forward", "handle any critical duties"], "first_project": "Quizjuice", "journal": "Today Sunday."}
 {"timestamp": "2026-01-21T15:32:06.564288+02:00", "mode": "gap", "days_off_grid": "10", "reason": "", "next_start": "", "next_task": "Map Grais 0.8 milestone", "notes": ""}
+{"timestamp": "2026-01-22T10:56:44.314447+02:00", "mode": "start", "sleep_hours": "6", "energy": "3", "focus": "3", "stress": "3", "outcomes": ["Push new version of grais to chrome store", "make extension public & update permissions"], "first_project": "grais-ai", "constraint": "No direct blocker"}
+{"timestamp": "2026-01-26T13:06:24.049572+02:00", "mode": "start"}

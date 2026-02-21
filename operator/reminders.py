@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import uuid
 from dataclasses import dataclass, asdict
 from datetime import datetime
 from pathlib import Path
@@ -32,8 +33,7 @@ def _ensure_store() -> None:
 
 
 def _gen_id(event: str, when_iso: str) -> str:
-    base = f"{_now_iso()}::{event}::{when_iso}"
-    return str(abs(hash(base)))
+    return uuid.uuid4().hex
 
 
 def load_all() -> List[Reminder]:
@@ -124,4 +124,3 @@ def past_due_unfired() -> List[Reminder]:
 
 def format_reminder_line(r: Reminder) -> str:
     return f"⏰ {r.event} — {r.when_iso} (id={r.id})"
-

@@ -148,6 +148,24 @@ def prompt_list(label: str) -> list[str]:
     return parse_list(prompt_text(label))
 
 
+def coerce_text(value: object) -> str:
+    """Coerce a payload value into a string."""
+    if value is None:
+        return ""
+    return str(value).strip()
+
+
+def coerce_list(value: object) -> list[str]:
+    """Coerce a payload value into a list of strings."""
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return [str(item).strip() for item in value if str(item).strip()]
+    if isinstance(value, str):
+        return parse_list(value)
+    return []
+
+
 def append_section(path: Path, title: str, lines: list[str]) -> None:
     """Append a markdown section with bullet lines."""
     with path.open("a", encoding="utf-8") as handle:
@@ -203,14 +221,28 @@ def append_experiment_entry(payload: dict[str, object]) -> None:
         handle.write(json.dumps(payload, ensure_ascii=True) + "\n")
 
 
-def run_start(path: Path, target_date: date, prompt: bool) -> None:
+def run_start(
+    path: Path,
+    target_date: date,
+    prompt: bool,
+    payload: dict[str, object] | None = None,
+) -> None:
     """Run the start-of-day check-in."""
     lines: list[str] = []
     state_payload: dict[str, object] = {
         "timestamp": datetime.now().astimezone().isoformat(),
         "mode": "start",
     }
-    if prompt:
+    if payload is not None:
+        sleep_hours = coerce_text(payload.get("sleep_hours"))
+        energy = coerce_text(payload.get("energy"))
+        focus = coerce_text(payload.get("focus"))
+        stress = coerce_text(payload.get("stress"))
+        outcomes = coerce_list(payload.get("outcomes"))
+        first_project = coerce_text(payload.get("first_project"))
+        constraint = coerce_text(payload.get("constraint"))
+        journal = coerce_text(payload.get("journal"))
+    elif prompt:
         sleep_hours = prompt_text("Sleep hours: ")
         energy = prompt_text("Energy (1-5): ")
         focus = prompt_text("Focus (1-5): ")
@@ -251,10 +283,18 @@ def run_start(path: Path, target_date: date, prompt: bool) -> None:
     append_state_log(state_payload)
 
 
-def run_mid(path: Path, prompt: bool) -> None:
+def run_mid(
+    path: Path, prompt: bool, payload: dict[str, object] | None = None
+) -> None:
     """Run the midday check-in."""
     lines: list[str] = []
-    if prompt:
+    if payload is not None:
+        done = coerce_list(payload.get("done"))
+        blockers = coerce_list(payload.get("blockers"))
+        next_task = coerce_text(payload.get("next_task"))
+        correction = coerce_text(payload.get("correction"))
+        wellbeing = coerce_list(payload.get("wellbeing"))
+    elif prompt:
         done = prompt_list("Done so far (comma-separated): ")
         blockers = prompt_list("Blockers (comma-separated): ")
         next_task = prompt_text("Next immediate task: ")
@@ -278,12 +318,35 @@ def run_mid(path: Path, prompt: bool) -> None:
     append_section(path, "Midday Check-in", lines)
 
 
-def run_end(path: Path, target_date: date, prompt: bool, include_metrics: bool) -> None:
+def run_end(
+    path: Path,
+    target_date: date,
+    prompt: bool,
+    include_metrics: bool,
+    payload: dict[str, object] | None = None,
+) -> None:
     """Run the end-of-day check-in."""
     lines: list[str] = []
     wellbeing: list[str] = []
     experiment_payload: dict[str, object] | None = None
-    if prompt:
+    if payload is not None:
+        wins = coerce_list(payload.get("wins"))
+        blocks = coerce_list(payload.get("blocks"))
+        next_tasks = coerce_list(payload.get("next_tasks"))
+        wellbeing = coerce_list(payload.get("wellbeing"))
+        friction = coerce_text(payload.get("friction"))
+        improvement = coerce_text(payload.get("improvement"))
+        experiment_id = coerce_text(payload.get("experiment_id"))
+        experiment_effect = coerce_text(payload.get("experiment_effect"))
+        experiment_notes = coerce_text(payload.get("experiment_notes"))
+        if experiment_id:
+            experiment_payload = {
+                "timestamp": datetime.now().astimezone().isoformat(),
+                "experiment_id": experiment_id,
+                "effect": experiment_effect,
+                "notes": experiment_notes,
+            }
+    elif prompt:
         wins = prompt_list("Wins (comma-separated): ")
         blocks = prompt_list("Blocks (comma-separated): ")
         next_tasks = prompt_list("Next tasks (comma-separated): ")
@@ -352,6 +415,16 @@ def build_parser() -> argparse.ArgumentParser:
         help="Skip interactive prompts and log placeholders.",
     )
     parser.add_argument(
+        "--payload-json",
+        default="",
+        help="Optional JSON string with check-in answers.",
+    )
+    parser.add_argument(
+        "--payload-file",
+        default="",
+        help="Optional JSON file with check-in answers.",
+    )
+    parser.add_argument(
         "--include-metrics",
         action="store_true",
         help="Append auto metrics (focus time, progress, wellbeing).",
@@ -359,10 +432,34 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
+def load_payload(args: argparse.Namespace) -> dict[str, object] | None:
+    """Load payload data from JSON string or file."""
+    if args.payload_json:
+        try:
+            payload = json.loads(args.payload_json)
+        except json.JSONDecodeError:
+            print("Invalid payload JSON.")
+            return None
+        return payload if isinstance(payload, dict) else None
+    if args.payload_file:
+        path = Path(args.payload_file)
+        if not path.exists():
+            print("Payload file not found.")
+            return None
+        try:
+            payload = json.loads(path.read_text())
+        except json.JSONDecodeError:
+            print("Invalid payload file JSON.")
+            return None
+        return payload if isinstance(payload, dict) else None
+    return None
+
+
 def main() -> int:
     """Entry point."""
     parser = build_parser()
     args = parser.parse_args()
+    payload = load_payload(args)
 
     if args.date:
         try:
@@ -376,15 +473,15 @@ def main() -> int:
     note_path = get_note_path(target_date)
     ensure_note_header(note_path, target_date)
 
-    prompt = not args.no_prompt
+    prompt = not args.no_prompt and payload is None
     include_metrics = args.include_metrics or args.mode == "end"
 
     if args.mode == "start":
-        run_start(note_path, target_date, prompt)
+        run_start(note_path, target_date, prompt, payload)
     elif args.mode == "mid":
-        run_mid(note_path, prompt)
+        run_mid(note_path, prompt, payload)
     else:
-        run_end(note_path, target_date, prompt, include_metrics)
+        run_end(note_path, target_date, prompt, include_metrics, payload)
 
     return 0
 

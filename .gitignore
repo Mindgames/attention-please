@@ -37,6 +37,22 @@ yarn.lock
 *~.nib
 *.log
 
+# Python caches
+__pycache__/
+*.pyc
+
+# Operator runtime state/logs
+operator/*.jsonl
+operator/*.log
+operator/*.pid
+operator/*_state.json
+operator/pending_checkins.json
+operator/daily_notes/
+operator/sessions/
+operator/internal_reflections.md
+operator/assistant_reflections.jsonl
+operator/reminders.jsonl
+
 # Environment files
 .env
 .env.local

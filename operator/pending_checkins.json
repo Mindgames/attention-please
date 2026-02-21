@@ -107,5 +107,45 @@
     "planned_break_minutes": 15.0,
     "started_at": "2026-01-09T16:02:18.037537+01:00",
     "ended_at": "2026-01-09T17:02:26.801378+01:00"
+  },
+  {
+    "session_id": "0f3d7c669b8f461a87ce7457e14a6d1f",
+    "topic": "PostHog DB mapping (grais-api#350)",
+    "planned_focus_minutes": 90.0,
+    "planned_break_minutes": 15.0,
+    "started_at": "2026-01-21T16:22:10.803771+02:00",
+    "ended_at": "2026-01-21T17:52:22.132190+02:00"
+  },
+  {
+    "session_id": "5f7515af27174237a33b205e34699cb7",
+    "topic": "PostHog DB mapping (grais-api#350)",
+    "planned_focus_minutes": 30.0,
+    "planned_break_minutes": 15.0,
+    "started_at": "2026-01-21T17:58:36.726624+02:00",
+    "ended_at": "2026-01-21T18:28:47.757674+02:00"
+  },
+  {
+    "session_id": "72cbb0d221204dee87a2d15c274b5bd9",
+    "topic": "Grais 0.8",
+    "planned_focus_minutes": 60.0,
+    "planned_break_minutes": 15.0,
+    "started_at": "2026-01-21T22:07:47.876995+02:00",
+    "ended_at": "2026-01-21T23:07:56.572149+02:00"
+  },
+  {
+    "session_id": "304e8c8f6eb94c9597beebe1fffb4682",
+    "topic": "Grais",
+    "planned_focus_minutes": 60.0,
+    "planned_break_minutes": 15.0,
+    "started_at": "2026-01-22T13:34:28.683905+02:00",
+    "ended_at": "2026-01-22T14:34:37.306487+02:00"
+  },
+  {
+    "session_id": "7efec882f4464f118e1fd75f72a93e8f",
+    "topic": "Grais: fix debug view bugs + brief Skander",
+    "planned_focus_minutes": 60.0,
+    "planned_break_minutes": 15.0,
+    "started_at": "2026-01-26T16:29:28.144917+02:00",
+    "ended_at": "2026-01-26T17:29:38.561953+02:00"
   }
 ]

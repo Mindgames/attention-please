@@ -43,17 +43,20 @@
 - focus-timer: project-only focus timer with spoken prompts and pip alerts (path: `.codex/skills/private/focus-timer/SKILL.md`).
 - daily-checkin: project-only daily check-in to capture state, journal, wellbeing, and metrics (path: `.codex/skills/private/daily-checkin/SKILL.md`).
 - daily-routine: project-only daily automation loop that ensures auto-checkins run and tracks first-message-of-day state (path: `.codex/skills/private/daily-routine/SKILL.md`).
+- daily-journal: private daily journaling with rotating prompts and time-of-day modes (path: `.codex/skills/private/daily-journal/SKILL.md`).
 
 ## Daily Ops Runbook
 - First message of the day: run daily routine; if start-of-day check-in is pending, ask if the user is ready and then run it.
+- After start-of-day check-in: run a journal entry with `python3 scripts/journal.py --mode start`.
 - Daily priority scan (every morning): review `tasks.md` and `projects/*/PROJECT.md` (Top Tasks/Recent Activity), propose top 3 priorities before scheduling focus blocks.
 - Daily priority scan: ensure each chosen priority has a deadline; propose and add one if missing.
-- Daily deadline scan (morning + shutdown): run `python3 .codex/skills/private/deadline-guard/scripts/deadline_scan.py`; escalate overdue or due-soon items (default 3-day window unless overridden).
-- Missed days/off-grid: run `python3 .codex/skills/private/daily-ops/scripts/gap_reset.py` to log a gap note and light restart plan (keep prompts date-free).
+- Daily deadline scan (morning + shutdown): run `python3 scripts/deadline_scan.py`; escalate overdue or due-soon items (default 3-day window unless overridden).
+- Missed days/off-grid: run `python3 scripts/gap_reset.py` to log a gap note and light restart plan (keep prompts date-free).
 - Focus blocks or breaks: start a focus timer (default 60-minute focus, 15-minute break unless specified).
 - Midday reset: run the midday check-in when due or requested.
 - End of day: run the end-of-day check-in (include metrics by default).
-- Assistant reflections: after end-of-day check-in or when requested, run `python3 .codex/skills/private/daily-ops/scripts/assistant_reflection.py` to append to `operator/internal_reflections.md` and `operator/assistant_reflections.jsonl`.
+- After end-of-day check-in: run a journal entry with `python3 scripts/journal.py --mode end`.
+- Assistant reflections: after end-of-day check-in or when requested, run `python3 scripts/assistant_reflection.py` to append to `operator/internal_reflections.md` and `operator/assistant_reflections.jsonl`.
 - Failure handling: when the user flags a miss, log it immediately with a concrete fix.
 - Prompt style: avoid enumerated lists; ask brief questions and fill logs in the background; journal is a separate optional flow.
 - Break instruction: rotate break focus (reset/body/recovery/environment/admin), avoid repeating the same routine, and track daily goals (stretching, breathing, pushups toward 100/day, hydration, hygiene).

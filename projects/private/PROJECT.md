@@ -2,7 +2,7 @@
 title: Private Ops
 status: In Progress
 owner: Mathias Asberg
-updated: 2025-12-28
+updated: 2026-01-22
 north_star_metric: Personal admin tasks completed on time (%)
 roi_window: TBD
 weekly_time_budget_hours: TBD
@@ -42,8 +42,8 @@ Personal admin work (travel, health, finance) tracked separately so deadlines do
 
 ## Top Tasks (next up)
 
-- [ ] Move money for Warsaw flight :: impact=H; effort=0.25h; due=2025-12-29; owner=@mathias
-- [ ] Book flight to Warsaw (Tue/Wed) :: impact=H; effort=0.5h; due=2025-12-29; owner=@mathias; notes=after funds are ready
+- [x] Move money for Warsaw flight :: impact=H; effort=0.25h; due=2025-12-29; owner=@mathias
+- [x] Book flight to Warsaw (Tue/Wed) :: impact=H; effort=0.5h; due=2025-12-29; owner=@mathias; notes=after funds are ready
 - [ ] Set aside EUR 2k for dentist step 1 (upper teeth replacement) :: impact=M; effort=0.25h; due=unset; owner=@mathias
 - [ ] Plan/save EUR 7k for veneers (next stage) :: impact=L; effort=0.5h; due=unset; owner=@mathias
 
@@ -55,6 +55,7 @@ Personal admin work (travel, health, finance) tracked separately so deadlines do
 
 ## Recent Activity (last 7 days)
 
+- 2026-01-22 - Warsaw flight booked; funds moved.
 - 2025-12-28 - Plan to book Warsaw flight tomorrow after funds are ready.
 
 ## Risks / Blocks

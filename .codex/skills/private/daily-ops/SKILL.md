@@ -15,6 +15,8 @@ Break style: rotate break focus to avoid repetition and track daily goals (stret
 
 1. First message of the day
    - Run the daily routine loop; if a start-of-day check-in is pending, ask if the user is ready and then run it.
+   - When chat-based, collect the start check-in in one batch message (sleep, energy, focus, stress, outcomes, first project, constraint).
+   - Keep journaling separate: offer a short journal after the check-in using rotating prompts (based on recent journal history).
 2. Daily priority scan (every morning)
    - Review `tasks.md` and `projects/*/PROJECT.md` (Top Tasks/Recent Activity).
    - Propose the top 3 priorities and ask for confirmation before scheduling focus blocks.
@@ -31,6 +33,7 @@ Break style: rotate break focus to avoid repetition and track daily goals (stret
    - If a midday reset is due or requested, run the midday check-in.
 5. End of day
    - When the day wraps or the end window is reached, run the end-of-day check-in (include metrics by default).
+   - After the end-of-day check-in, run the journal: `python3 scripts/journal.py --mode end`.
 6. Assistant reflection
    - After end-of-day check-in or when the user requests internal notes, run:
      `python3 .codex/skills/private/daily-ops/scripts/assistant_reflection.py`

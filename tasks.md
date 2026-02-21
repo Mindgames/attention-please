@@ -5,8 +5,8 @@
 - [ ] Run the operator once and validate that `schedule.md` matches reality :: priority=M; due=2025-12-31; time=30m; project=personal-task-manager
 - [ ] Draft weekly review template (project health + backlog cleanup) :: priority=M; due=2026-01-03; time=60m; project=personal-task-manager
 - [ ] Finalize focus/break rhythm and well-being menu (stretching, breathing, pushups) :: priority=M; due=2025-12-31; time=30m; project=personal-task-manager
-- [ ] Move money for Warsaw flight :: priority=H; due=2025-12-29; time=15m; project=private; context=personal
-- [ ] Book flight to Warsaw (Tue/Wed) :: priority=H; due=2025-12-29; time=30m; project=private; context=personal; notes=after funds are ready
+- [x] Move money for Warsaw flight :: priority=H; due=2025-12-29; time=15m; project=private; context=personal
+- [x] Book flight to Warsaw (Tue/Wed) :: priority=H; due=2025-12-29; time=30m; project=private; context=personal; notes=after funds are ready
 - [ ] Set aside EUR 2k for dentist step 1 (upper teeth replacement) :: priority=M; due=unset; time=15m; project=private; context=personal
 - [ ] Plan/save EUR 7k for veneers (next stage) :: priority=L; due=unset; time=30m; project=private; context=personal
 - [x] Draft 0.8 outcomes list (3-5 outcomes) :: priority=H; due=2026-01-21; time=30m; project=grais-ai
@@ -15,7 +15,7 @@
 - [x] Convert 0.8 plan into milestones/tickets with dates :: priority=H; due=2026-01-23; time=60m; project=grais-ai
 - [ ] Define Grais.ai beta-ready checklist and success criteria :: priority=H; due=2026-01-04; time=60m; project=grais-ai
 - [ ] Map DB fields/events needed for PostHog analytics (align with grais-api#350) :: priority=H; due=2026-01-21; time=60m; project=grais-ai
-- [ ] Implement remote function disable for Grais stack :: priority=H; due=2026-01-21; time=90m; project=grais-ai
+- [x] Implement remote function disable for Grais stack :: priority=H; due=2026-01-21; time=90m; project=grais-ai
 - [ ] Quizjuice forward session (pick 1 MVP improvement and ship) :: priority=M; due=2026-01-21; time=90m; project=quizjuice
 - [ ] Update external conversation summary function :: priority=H; due=2026-01-04; time=90m; project=grais-ai
 - [ ] Add conversation type + goal detection :: priority=H; due=2026-01-04; time=90m; project=grais-ai

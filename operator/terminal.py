@@ -183,6 +183,18 @@ class TerminalFormatter:
         now = datetime.now()
         return now.strftime("%H:%M:%S")
 
+    def time_of_day_label(self, now: Optional[datetime] = None) -> str:
+        """Return a human-friendly time-of-day label for a datetime."""
+        current = now or datetime.now()
+        hour = current.hour
+        if 5 <= hour < 12:
+            return "morning"
+        if 12 <= hour < 17:
+            return "afternoon"
+        if 17 <= hour < 23:
+            return "evening"
+        return "night"
+
     def separator(self, char: str = "─", length: int = 50) -> str:
         """Create a visual separator."""
         return self._colorize(char * length, Colors.DIM)
@@ -306,11 +318,16 @@ class OperatorTerminal:
 
     def welcome(self) -> str:
         """Display welcome message."""
+        now = datetime.now()
+        daypart = self.formatter.time_of_day_label(now)
         lines = [
             self.formatter.header("GRAIS OPERATOR", Emojis.COACH),
             self.formatter.info("AI-Augmented Daily Focus System"),
             self.formatter.muted(
                 f"Session started: {self._session_start.strftime('%Y-%m-%d %H:%M:%S')}"
+            ),
+            self.formatter.muted(
+                f"Local time: {now.strftime('%Y-%m-%d %H:%M')} ({daypart})"
             ),
             "",
             self.formatter.subheader(
@@ -335,8 +352,13 @@ class OperatorTerminal:
 
     def prompt(self) -> str:
         """Display input prompt."""
-        timestamp = self.formatter.timestamp()
-        return f"{self.formatter.muted(f'[{timestamp}]')} {self.formatter.highlight('operator')} ➤ "
+        now = datetime.now()
+        daypart = self.formatter.time_of_day_label(now)
+        timestamp = now.strftime("%H:%M")
+        return (
+            f"{self.formatter.muted(f'[{timestamp} {daypart}]')} "
+            f"{self.formatter.highlight('operator')} ➤ "
+        )
 
     def goodbye(self) -> str:
         """Display goodbye message."""

@@ -40,6 +40,24 @@ Collect daily state, journal, and productivity signals with minimal friction, an
    - System friction + improvement idea
    - Optional experiment feedback (keep/adjust/stop)
 
+## Chat-first check-in (batch for morning, brief for others)
+
+Use this when interactive CLI prompts are unavailable.
+
+1. **Start-of-day**: collect the core fields in a single batch message to reduce friction.
+2. **Midday/end**: short, human prompts are fine (one by one if needed).
+3. Build a payload JSON with the answers.
+4. Write payload to a temp file and run:
+   - Start: `python3 scripts/daily_checkin.py --mode start --payload-file /tmp/daily_checkin_payload.json`
+   - Midday: `python3 scripts/daily_checkin.py --mode mid --payload-file /tmp/daily_checkin_payload.json`
+   - End: `python3 scripts/daily_checkin.py --mode end --payload-file /tmp/daily_checkin_payload.json`
+
+### Expected payload keys
+
+- **start**: `sleep_hours`, `energy`, `focus`, `stress`, `outcomes` (list), `first_project`, `constraint`, `journal`
+- **mid**: `done` (list), `blockers` (list), `next_task`, `correction`, `wellbeing` (list)
+- **end**: `wins` (list), `blocks` (list), `next_tasks` (list), `wellbeing` (list), `friction`, `improvement`, `experiment_id`, `experiment_effect`, `experiment_notes`
+
 ## Outputs
 
 - Daily note appended at:

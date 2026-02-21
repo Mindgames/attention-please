@@ -25,6 +25,7 @@ Run a focus timer with optional break or a break-only timer, spoken prompts, and
 - Pass `--volume-boost 0` to avoid temporarily raising system volume during prompts.
 - Time tracking events append to `operator/time_log.jsonl` on start and end of focus/break segments.
 - Focus completion appends a pending check-in entry to `operator/pending_checkins.json` for progress capture.
+- After focus or break ends, an attention loop will repeat alerts every few minutes until you respond (complete the pending check-in or start a new focus session).
 
 ## Behavior
 

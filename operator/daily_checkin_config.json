@@ -1,0 +1,5 @@
+{
+  "enabled_modes": ["start"],
+  "start_on_focus_activity": false,
+  "cooldown_minutes": 120
+}

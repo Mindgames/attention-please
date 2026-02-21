@@ -242,21 +242,28 @@ def evaluate_due_modes(
     end_window: CheckinWindow,
     mid_after_focus: int,
     idle_minutes_for_end: int,
+    enabled_modes: set[str] | None,
+    start_on_focus_activity: bool,
 ) -> list[str]:
     """Return modes that should trigger now."""
     modes: list[str] = []
     current_time = now.time()
 
-    if "start" not in checkins_done:
-        if start_window.contains(current_time) or has_focus_activity:
+    def is_enabled(mode: str) -> bool:
+        return enabled_modes is None or mode in enabled_modes
+
+    if is_enabled("start") and "start" not in checkins_done:
+        if start_window.contains(current_time) or (
+            start_on_focus_activity and has_focus_activity
+        ):
             modes.append("start")
 
-    if "mid" not in checkins_done:
+    if is_enabled("mid") and "mid" not in checkins_done:
         if focus_count >= mid_after_focus or mid_window.contains(current_time):
             if has_focus_activity or "start" in checkins_done:
                 modes.append("mid")
 
-    if "end" not in checkins_done:
+    if is_enabled("end") and "end" not in checkins_done:
         end_due = end_window.contains(current_time)
         idle_due = False
         if last_focus_end:
@@ -353,6 +360,16 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Only notify with attention alert, do not run check-ins.",
     )
+    parser.add_argument(
+        "--enabled-modes",
+        default="",
+        help="Comma-separated list of modes to notify/run (e.g. start,mid,end). Defaults to all.",
+    )
+    parser.add_argument(
+        "--start-on-focus-activity",
+        action="store_true",
+        help="Trigger start check-in after any focus activity (default when unset in config).",
+    )
     return parser
 
 
@@ -370,7 +387,23 @@ def apply_config(
             config.get("idle_minutes_for_end", args.idle_minutes_for_end)
         ),
         "cooldown_minutes": int(config.get("cooldown_minutes", args.cooldown_minutes)),
+        "enabled_modes": config.get("enabled_modes", args.enabled_modes),
+        "start_on_focus_activity": bool(
+            config.get("start_on_focus_activity", args.start_on_focus_activity)
+        ),
     }
+
+
+def normalize_enabled_modes(raw: object) -> set[str] | None:
+    if raw is None or raw == "":
+        return None
+    if isinstance(raw, list):
+        modes = [str(m).strip().lower() for m in raw if str(m).strip()]
+        return set(modes) if modes else None
+    if isinstance(raw, str):
+        modes = [m.strip().lower() for m in raw.split(",") if m.strip()]
+        return set(modes) if modes else None
+    return None
 
 
 def main() -> int:
@@ -381,6 +414,8 @@ def main() -> int:
     config_path = Path(args.config) if args.config else get_repo_root() / "operator" / "daily_checkin_config.json"
     config = load_config(config_path)
     settings = apply_config(args, config)
+    enabled_modes = normalize_enabled_modes(settings.get("enabled_modes"))
+    start_on_focus_activity = bool(settings.get("start_on_focus_activity", True))
 
     start_window = parse_window(str(settings["start_window"]))
     mid_window = parse_window(str(settings["mid_window"]))
@@ -409,6 +444,8 @@ def main() -> int:
             end_window,
             int(settings["mid_after_focus"]),
             int(settings["idle_minutes_for_end"]),
+            enabled_modes,
+            start_on_focus_activity,
         )
 
         updated_state = run_checkins(

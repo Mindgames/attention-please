@@ -15,19 +15,13 @@ See `projects/README.md` for the current project index.
 This repo keeps tools that use the OpenAI Agents SDK. The `research_bot` project is an example of a personal tool built on it.
 
 - Run: `python -m projects.research_bot.main`
-- Run daily focus assistant & coach: `python -m operator.main` (or `python main.py`)
+- Run daily focus assistant & coach: `python -m operator.main`
 - Requires Python 3.10+ and a configured `.env` with your API key(s)
   - Optional: set `OPERATOR_TZ` (IANA tz like `Europe/Stockholm`) to pin timezone.
 
-## Agent Loop Demo
-
-- Run a minimal loop with the CoordinatorAgent (Agents SDK):
-  - `python agent_loop.py` → type messages; prints structured decisions; `exit` to quit.
-
 ## Documentation
 
-- Product Requirements (repo-level): `PRD.md`
-- Technical overview of agents and key functions: `technical.md`
+- Technical overview of agents and key functions: `archive/technical.md`
 
 ## Coaching Flow
 
@@ -36,17 +30,6 @@ This repo keeps tools that use the OpenAI Agents SDK. The `research_bot` project
   - Asks brief clarifying questions when needed and can route to scheduling or project review on demand.
   - Saves a lightweight transcript per day under `operator/sessions/`.
   - Detects future events in your messages and offers to set reminders; reminders are stored in `operator/reminders.jsonl` and surfaced when due.
-
-## Agent Visualization
-
-- Quick run (no params):
-  - `python visualize_agents.py` → writes `agents_operator.png` in the repo root.
-  - If Graphviz is not available, falls back to `agents_operator.dot` and prints a note.
-
-- Advanced:
-  - DOT: `python visualize_agents.py --format dot`
-  - SVG: `python visualize_agents.py --format svg`
-  - Custom output: `python visualize_agents.py --format png --output out.png`
 
 ## Add a New Project
 
