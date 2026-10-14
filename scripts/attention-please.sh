@@ -60,7 +60,8 @@ fi
 if [ -z "$project_name" ] && [ -n "$repo_root" ]; then
   remote_url="$(git -C "$repo_root" remote get-url "$remote_name" 2>/dev/null || true)"
   if [ -n "$remote_url" ]; then
-    clean="${remote_url%.git}"
+    clean="${remote_url%/}"
+    clean="${clean%.git}"
     path="$clean"
     if [[ "$clean" == *"://"* ]]; then
       path="${clean#*://}"

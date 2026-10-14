@@ -78,6 +78,7 @@ After reinstall, restart your agent client if needed so it reloads skills.
 ### Project name resolution
 
 - Primary: `git remote get-url origin` and extract the repo name.
+- Remove an optional trailing `/` before the `.git` suffix, so `project.git/` resolves to `project`.
 - Remote override: set `ATTENTION_PLEASE_REMOTE`.
 - Fallback: repo folder name.
 - Override: set `ATTENTION_PLEASE_PROJECT`.

@@ -14,6 +14,8 @@ Thanks for helping improve attention-please!
 ## Development
 
 - Bash syntax check: `bash -n scripts/attention-please.sh`
+- Project-name regression tests: `bash tests/test-project-name.sh` (Bash and Git only; no network or audio).
+- To test another script copy: `bash tests/test-project-name.sh /path/to/attention-please.sh`.
 - Manual verification: run `scripts/attention-please.sh` inside a repo and confirm sound, speech, and fallback behavior.
 
 ## Pull Requests
