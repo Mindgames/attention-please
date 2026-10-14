@@ -8,6 +8,8 @@ Attention Please is an Agent SKILL that boosts your productivity by telling you 
 
 Compatible with macOS today. Windows and Linux are coming soon.
 
+The project name comes from the Git remote, with an optional trailing `/` and `.git` suffix removed (for example, `project.git/` becomes `project`). Set `ATTENTION_PLEASE_PROJECT` to override it.
+
 ## Install (skills.sh)
 
 Install via `skills.sh`:
