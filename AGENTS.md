@@ -21,6 +21,7 @@ This repo has no build step. Run the script directly:
 - Script files use kebab-case names with a `.sh` suffix.
 
 ## Testing Guidelines
+- Run `bash tests/test-project-name.sh` for project-name regressions. The suite uses temporary Git repositories with no network or audio.
 - Run `bash tests/test-sound-toggle.sh` for sound preference and audio-routing regressions with temporary files and audio stubs.
 - Manual verification: run `scripts/attention-please.sh` inside a repo and confirm sound, speech, and fallback behavior.
 - If you add tests, document the framework and keep fixtures under `tests/`.
