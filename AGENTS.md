@@ -21,7 +21,7 @@ This repo has no build step. Run the script directly:
 - Script files use kebab-case names with a `.sh` suffix.
 
 ## Testing Guidelines
-- There is no automated test suite yet.
+- Run `bash tests/test-sound-toggle.sh` for sound preference and audio-routing regressions with temporary files and audio stubs.
 - Manual verification: run `scripts/attention-please.sh` inside a repo and confirm sound, speech, and fallback behavior.
 - If you add tests, document the framework and keep fixtures under `tests/`.
 
@@ -31,7 +31,7 @@ This repo has no build step. Run the script directly:
 - Avoid adding network or destructive operations; this script should remain side-effect light.
 
 ## Agent Behavior
-- Use the `attention-please` script to play the alert at the end of each turn or whenever user input/confirmation is needed.
+- Use the `attention-please` script only when explicitly requested, a long-running task blocks on human input, or a background process finishes and needs attention. Do not alert after ordinary responses.
 
 ## Commit & Pull Request Guidelines
 - Use short, imperative commit messages; current history shows `Initial attention-please skill`.

@@ -4,7 +4,7 @@ A Codex and Claude Agent SKILL that notifies you when your attention is needed.
 
 ![Support](supported.png)
 
-Attention Please is an Agent SKILL that boosts your productivity by telling you when a turn ends or when your input is required.
+Attention Please is an Agent SKILL that boosts your productivity by alerting you when a background task finishes or your input is required.
 
 Compatible with macOS today. Windows and Linux are coming soon.
 
@@ -24,11 +24,26 @@ npx skills add Mindgames/attention-please -g -y
 
 ## Instruct your Agent
 
-Tell your agent to run the skill at the end of each turn or when input/confirmation is needed:
+Tell your agent when audible alerts are useful:
 
 ```text
-$attention-please update AGENTS.md to run the attention-please skill at the end of each turn or when input/confirmation is needed.
+$attention-please update AGENTS.md to alert only when I explicitly ask, a long-running task needs my input, or a background process finishes and needs attention.
 ```
+
+## Toggle the alert sound
+
+The short `afplay` alert can be muted or re-enabled persistently:
+
+```bash
+scripts/attention-please.sh --sound off
+scripts/attention-please.sh --sound on
+scripts/attention-please.sh --sound toggle
+scripts/attention-please.sh --sound status
+```
+
+This controls only the alert sound. Speech remains controlled separately with `ATTENTION_PLEASE_NO_SAY=1`.
+
+By default the preference is stored in `${XDG_CONFIG_HOME:-~/.config}/attention-please/config`. Override the path with `ATTENTION_PLEASE_CONFIG_FILE`.
 
 ## Audio sample
 
@@ -44,3 +59,7 @@ Issue with the hosted clip: [#5](https://github.com/Mindgames/attention-please/i
 ---
 
 Follow me on X: https://x.com/mathiiias123
+
+## Development checks
+
+Run `bash -n scripts/attention-please.sh` and `bash tests/test-sound-toggle.sh`. The tests use temporary config files and audio stubs; they do not change your preferences or play audio.

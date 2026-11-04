@@ -13,6 +13,7 @@ Thanks for helping improve attention-please!
 
 ## Development
 
+- Sound preference regression tests: `bash tests/test-sound-toggle.sh` (temporary config and audio stubs).
 - Bash syntax check: `bash -n scripts/attention-please.sh`
 - Manual verification: run `scripts/attention-please.sh` inside a repo and confirm sound, speech, and fallback behavior.
 
