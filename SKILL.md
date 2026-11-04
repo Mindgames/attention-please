@@ -17,7 +17,7 @@ Use this only when:
 ## Source Of Truth And Publishing
 
 - GitHub repository: `https://github.com/Mindgames/attention-please`
-- Local development repository: `~/Projects/attention-please`
+- Local development repository: use the verified owning checkout for the current task.
 - Do not edit installed copies in `~/.agents/skills/...` or `~/.codex/skills/...` directly.
 - Update this repository, push to GitHub, open a PR, then reinstall via `skills`.
 

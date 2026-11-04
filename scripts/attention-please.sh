@@ -76,7 +76,7 @@ current_sound_state() {
   read_sound_preference || printf '%s\n' "on"
 }
 
-write_sound_preference() {
+write_sound_preference() (
   local next_state
   next_state="$(normalize_sound_state "$1")"
 
@@ -86,7 +86,13 @@ write_sound_preference() {
   fi
 
   mkdir -p "$(dirname "$config_file")"
-  local tmp_file="${config_file}.tmp.$$"
+  if [ -d "$config_file" ]; then
+    printf '%s\n' "attention-please: config file path is a directory: $config_file" >&2
+    return 1
+  fi
+  local tmp_file
+  tmp_file="$(mktemp "${config_file}.tmp.XXXXXX")"
+  trap 'rm -f "$tmp_file"' EXIT
 
   {
     if [ -f "$config_file" ]; then
@@ -101,7 +107,7 @@ write_sound_preference() {
   } > "$tmp_file"
 
   mv "$tmp_file" "$config_file"
-}
+)
 
 print_sound_state() {
   printf 'attention-please sound is %s\n' "$(current_sound_state)"
@@ -118,6 +124,7 @@ no_say="${ATTENTION_PLEASE_NO_SAY:-}"
 verbose="${ATTENTION_PLEASE_VERBOSE:-}"
 config_file="$(default_config_file)"
 sound_command=""
+sound_command_set=0
 
 while [ "$#" -gt 0 ]; do
   case "$1" in
@@ -130,10 +137,12 @@ while [ "$#" -gt 0 ]; do
         printf '%s\n' "attention-please: --sound requires on, off, toggle, or status." >&2
         exit 2
       fi
+      sound_command_set=1
       sound_command="$2"
       shift 2
       ;;
     --sound=*)
+      sound_command_set=1
       sound_command="${1#--sound=}"
       shift
       ;;
@@ -151,7 +160,7 @@ warn() {
   fi
 }
 
-if [ -n "$sound_command" ]; then
+if [ "$sound_command_set" -eq 1 ]; then
   sound_command="$(printf '%s' "$sound_command" | tr '[:upper:]' '[:lower:]')"
   case "$sound_command" in
     status)
