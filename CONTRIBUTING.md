@@ -13,6 +13,7 @@ Thanks for helping improve attention-please!
 
 ## Development
 
+- Sound preference regression tests: `bash tests/test-sound-toggle.sh` (temporary config and audio stubs).
 - Bash syntax check: `bash -n scripts/attention-please.sh`
 - Project-name regression tests: `bash tests/test-project-name.sh` (Bash and Git only; no network or audio).
 - To test another script copy: `bash tests/test-project-name.sh /path/to/attention-please.sh`.
